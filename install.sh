@@ -18,7 +18,7 @@ docker_install() {
     # Add our key to it if it is not present
     KEY=$(cat ~/.ssh/id_rsa.pub)
     grep -Fxq "$KEY" ~/.ssh/authorized_keys || cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-    groupadd docker && usermod -aG docker $USER
+    sudo groupadd docker && sudo usermod -aG docker $USER
 
     printf "\x1B[01;92m================== Done.  ==================\n\x1B[0m\n\n"
 }
