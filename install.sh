@@ -19,7 +19,7 @@ docker_install() {
     KEY=$(cat ~/.ssh/id_rsa.pub)
     grep -Fxq "$KEY" ~/.ssh/authorized_keys || cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
     sudo groupadd docker
-    sudo usermod -aG docker $USER
+    sudo usermod -aG docker morris
 
     printf "\x1B[01;92m================== Done.  ==================\n\x1B[0m\n\n"
 }
