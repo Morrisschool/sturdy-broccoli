@@ -22,13 +22,5 @@ docker_install() {
     printf "\x1B[01;92m================== Done.  ==================\n\x1B[0m\n\n"
 }
 
-#Check if distro is tested, warn if not.
-if is_tested; then
-echo
-else
-    printf "\n\033[0;31mUntested operating system detected! You may press Ctrl+C now to abort this script.\nInstallation will proceed in 10 seconds.\n\n"
-    sleep 10
-fi
-
 # Actually do the install. Put in function and run at end to prevent parcial download and execution.
 docker_install
