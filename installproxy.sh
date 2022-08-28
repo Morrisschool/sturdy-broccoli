@@ -9,6 +9,6 @@ install() {
     sudo apt update
     sudo apt install haproxy=2.6.\* -y
 
-
+}
 # Actually do the install. Put in function and run at end to prevent parcial download and execution.
 install
