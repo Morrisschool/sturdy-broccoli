@@ -1,7 +1,7 @@
 install() {
     printf "\x1B[01;93m========== Updating system ==========\n\x1B[0m"
     sudo apt update
-    sudo apt upgrade
+    sudo apt upgrade -y
 
     printf "\x1B[01;93m========== Install HaProxy 2.6 and dependencies ==========\n\x1B[0m"
     sudo apt install --no-install-recommends software-properties-common
