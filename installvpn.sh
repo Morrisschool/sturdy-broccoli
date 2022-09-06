@@ -2,6 +2,7 @@ install() {
     printf "\x1B[01;93m========== Updating system ==========\n\x1B[0m"
     sudo apt update
     sudo apt upgrade -y
+    sudo apt-get install -y open-vm-tools
 
     printf "\x1B[01;93m========== Install OpenVPN and dependencies ==========\n\x1B[0m"
     sudo apt -y install ca-certificates wget net-tools gnupg
