@@ -6,8 +6,8 @@ install() {
 
     printf "\x1B[01;93m========== Install OpenVPN and dependencies ==========\n\x1B[0m"
     sudo apt -y install ca-certificates wget net-tools gnupg
-    wget -qO - https://as-repository.openvpn.net/as-repo-public.gpg | sudo apt-key add -
-    echo "deb http://as-repository.openvpn.net/as/debian jammy main" > /etc/apt/sources.list.d/openvpn-as-repo.list
+    sudo wget -qO - https://as-repository.openvpn.net/as-repo-public.gpg | sudo apt-key add -
+    sudo sh -c "echo 'deb http://as-repository.openvpn.net/as/debian jammy main' > /etc/apt/sources.list.d/openvpn-as-repo.list"
     sudo apt update && sudo apt -y install openvpn-as
 
 }
