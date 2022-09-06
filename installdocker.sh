@@ -1,7 +1,7 @@
 docker_install() {
     printf "\x1B[01;93m========== Updating system ==========\n\x1B[0m"
     sudo apt update
-    sudo apt upgrade
+    sudo apt upgrade -y
     sudo apt-get install -y open-vm-tools
 
     printf "\x1B[01;93m========== Install make and docker ==========\n\x1B[0m"
