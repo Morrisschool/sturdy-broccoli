@@ -5,3 +5,6 @@ bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/ma
 
 // Install HaProxy // 
 bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/installproxy.sh)
+
+// Install OpenVPN // 
+bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/installvpn.sh)
