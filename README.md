@@ -9,7 +9,7 @@ bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/ma
 // Install OpenVPN //<br />
   bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/installvpn.sh)
 
-// Install pihole //<br />
+// Install Pihole //<br />
   bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/installpihole.sh)
 
 // Install AdGuard //<br />
