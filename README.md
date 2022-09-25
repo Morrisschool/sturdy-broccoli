@@ -1,13 +1,13 @@
 # sturdy-broccoli
 
-// Install Docker<br />
+// Install Docker //<br />
 bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/installdocker.sh)
 
-// Install HaProxy<br />
+// Install HaProxy //<br />
   bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/installproxy.sh)
 
-// Install OpenVPN<br />
+// Install OpenVPN //<br />
   bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/installvpn.sh)
 
-// Install AdGuard<br />
+// Install AdGuard //<br />
   bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/installadguard.sh)
