@@ -8,3 +8,6 @@ bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/ma
 
 // Install OpenVPN // 
 bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/installvpn.sh)
+
+// Install AdGuard // 
+bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/installadguard.sh)
