@@ -1,1 +1,1 @@
-sudo sh -c "printf "[Resolve]\nDNS=127.0.0.1\nDNSStubListener=no" > test"
+sudo sh -c "echo -e '[Resolve]\nDNS=127.0.0.1\nDNSStubListener=no' > test"
