@@ -1,3 +1,5 @@
+#! /usr/bin/env bash
+
 pihole_install() {
     printf "\x1B[01;93m========== Updating system ==========\n\x1B[0m"
     sudo apt update
@@ -8,8 +10,8 @@ pihole_install() {
     curl -sSL https://install.pi-hole.net | bash
     
     printf "\x1B[01;93m========== Set password for PiHole admin page ==========\n\x1B[0m"
-    read -s -p "Password: " password
-    sudo pihole -a -p $password
+    read -s -p "Password: " PASSWORD
+    sudo pihole -a -p $PASSWORD
 
     printf "\x1B[01;93m========== Free up port 53 on 0.0.0.0 ==========\n\x1B[0m"
     sudo mkdir -p /etc/systemd/resolved.conf.d
