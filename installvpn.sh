@@ -1,3 +1,5 @@
+#! /usr/bin/env bash
+
 install() {
     printf "\x1B[01;93m========== Updating system ==========\n\x1B[0m"
     sudo apt update
