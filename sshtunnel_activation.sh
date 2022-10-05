@@ -4,9 +4,10 @@ sshtunnel_activation() {
     printf "\x1B[01;93m========== Tunnel name ==========\n\x1B[0m"
     TUNNEL=$(ls /etc/systemd/system/ | grep tunnel)
     echo $TUNNEL
-    read -p "Is this the correct tunnel? " YN
 
-    case $YN in
+    while true; do
+
+	case $YN in
         [yY] ) printf "\x1B[01;93m========== Reload daemon, enable service on startup, start service ==========\n\x1B[0m"
             sudo systemctl daemon-reload
             sudo systemctl enable $TUNNEL
@@ -20,7 +21,9 @@ sshtunnel_activation() {
             break;;
         * ) echo invalid response;;
     esac
-	
+
+    done
+
     printf "\x1B[01;92m================== Done.  ==================\n\x1B[0m\n\n"
     printf "\x1B[01;92m================== Display tunnel status  ==================\n\x1B[0m\n\n"
     sudo systemctl status $TUNNEL
