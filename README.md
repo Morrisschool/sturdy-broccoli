@@ -17,3 +17,9 @@ bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/ma
 
 // Install AdGuard //<br />
   bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/installadguard.sh)
+
+// Install SSH tunnel //<br />
+  bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/sshtunnel.sh)
+  
+// Activate SSH tunnel //<br />
+  bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/sshtunnel_activation.sh)
