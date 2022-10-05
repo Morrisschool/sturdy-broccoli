@@ -2,12 +2,14 @@
 
 sshtunnel_activation() {
     printf "\x1B[01;93m========== Tunnel name ==========\n\x1B[0m"
-    TUNNEL=$(ls /etc/systemd/system/ | grep tunnel)
+    TUNNEL=$(cat tunnelname)
     echo $TUNNEL
 
     while true; do
 
-	case $YN in
+    read -p "Is this the tunnel you want to activate? " YN
+
+    case $YN in
         [yY] ) printf "\x1B[01;93m========== Reload daemon, enable service on startup, start service ==========\n\x1B[0m"
             sudo systemctl daemon-reload
             sudo systemctl enable $TUNNEL
