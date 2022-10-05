@@ -6,6 +6,10 @@ pihole_install() {
 
     printf "\x1B[01;93m========== Install PiHole ==========\n\x1B[0m"
     curl -sSL https://install.pi-hole.net | bash
+    
+    printf "\x1B[01;93m========== Set password for PiHole admin page ==========\n\x1B[0m"
+    read -s -p "Password: " password
+    sudo pihole -a -p $password
 
     printf "\x1B[01;93m========== Free up port 53 on 0.0.0.0 ==========\n\x1B[0m"
     sudo mkdir -p /etc/systemd/resolved.conf.d
