@@ -24,7 +24,7 @@ sshtunnel_install() {
 
     printf "\x1B[01;93m========== Setup tunnel.service ==========\n\x1B[0m"
 	sudo touch /etc/systemd/system/${DOMAIN}.tunnel.service
-	sudo bash -c "cat <<-EOF > /etc/systemd/system/"DOMAIN".tunnel.service
+	sudo bash -c "cat <<-EOF > /etc/systemd/system/"$DOMAIN".tunnel.service
 	[Unit]
 	Description=Maintain Tunnel to cloud reverse proxy
 	After=network.target
@@ -46,6 +46,7 @@ sshtunnel_install() {
         [yY] ) break;;
         [nN] ) echo "Run the following command after installing the created public key on the Cloud proxy:"
             echo "bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/sshtunnel_activation.sh)"
+            echo ${DOMAIN}.tunnel.service > /home/"$USERNAME"/tunnelname
             exit;;
         * ) echo invalid response;;
     esac
