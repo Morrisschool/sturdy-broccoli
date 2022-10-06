@@ -3,7 +3,7 @@
 // Install Docker //<br />
 bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/installdocker.sh)
 
-// Install Docker ARM//<br />
+// Install Docker ARM //<br />
 bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/installdockerarm.sh)
 
 // Install HaProxy //<br />
