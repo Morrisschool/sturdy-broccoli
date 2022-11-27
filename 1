@@ -1,0 +1,120 @@
+version: '3'
+services:
+  npm:
+    image: 'jc21/nginx-proxy-manager:latest'
+    container_name: npm
+    restart: unless-stopped
+    ports:
+      # These ports are in format <host-port>:<container-port>
+      - '80:80' # Public HTTP Port
+      - '443:443' # Public HTTPS Port
+      - '81:81' # Admin Web Port
+      # Add any other Stream port you want to expose
+      # - '21:21' # FTP
+
+    # Uncomment the next line if you uncomment anything in the section
+    # environment:
+      # Uncomment this if you want to change the location of
+      # the SQLite DB file within the container
+      # DB_SQLITE_FILE: "/data/database.sqlite"
+
+      # Uncomment this if IPv6 is not enabled on your host
+      # DISABLE_IPV6: 'true'
+
+    volumes:
+      - /home/morris/dockerdata/npm:/data
+      - /home/morris/dockerdata/npmletsencrypt:/etc/letsencrypt
+
+  snippet-box:
+    image: pawelmalak/snippet-box:latest
+    container_name: snippet-box
+    volumes:
+      - /home/morris/dockerdata/snippet-box:/app/data
+    restart: unless-stopped
+
+  flame:
+    image: pawelmalak/flame
+    container_name: flame
+    volumes:
+      - /home/morris/dockerdata/flame:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock # optional but required for Docker integration
+    secrets:
+      - password # optional but required for (1)
+    environment:
+      - PASSWORD=flame_password
+      - PASSWORD_FILE=/run/secrets/password # optional but required for (1)
+    restart: unless-stopped
+
+  apache:
+    image: httpd:latest
+    container_name: apache
+    volumes:
+      - /home/morris/dockerdata/httpd:/usr/local/apache2/htdocs
+    restart: unless-stopped
+
+  smokeping:
+    image: lscr.io/linuxserver/smokeping:latest
+    container_name: smokeping
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Amsterdam
+    volumes:
+      - /home/morris/dockerdata/smokeping/config:/config
+      - /home/morris/dockerdata/smokeping/data:/data
+    restart: unless-stopped
+
+  taskcafe:
+    image: taskcafe/taskcafe:latest
+    container_name: taskcafe
+    # build: .
+    depends_on:
+      - taskcafedb
+    environment:
+      TASKCAFE_DATABASE_HOST: taskcafedb
+      TASKCAFE_MIGRATE: "true"
+    volumes:
+      - /home/morris/dockerdata/taskcafeuploads:/root/uploads
+
+  taskcafedb:
+    image: postgres:12.3-alpine
+    container_name: taskcafedb
+    restart: always
+    environment:
+      POSTGRES_USER: taskcafe
+      POSTGRES_PASSWORD: taskcafe_test
+      POSTGRES_DB: taskcafe
+    volumes:
+      - /home/morris/dockerdata/taskcafe-postgres:/var/lib/postgresql/data
+
+  webtop:
+    image: lscr.io/linuxserver/webtop:ubuntu-kde
+    container_name: webtop
+    security_opt:
+      - seccomp:unconfined #optional
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Amsterdam
+      - SUBFOLDER=/ #optional
+      - KEYBOARD=en-us-qwerty #optional
+    volumes:
+      - /home/morris/dockerdata/webtopdata:/config
+      - /var/run/docker.sock:/var/run/docker.sock #optional
+    shm_size: "1gb" #optional
+    restart: unless-stopped
+
+volumes:
+  taskcafe-postgres:
+    external: false
+  taskcafe-uploads:
+    external: false
+
+networks:
+  default:
+    external:
+      name: testnet
+
+secrets:
+  password:
+    file: /home/morris/password
