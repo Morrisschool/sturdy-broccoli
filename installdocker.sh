@@ -4,13 +4,14 @@ docker_install() {
     printf "\x1B[01;93m========== Updating system ==========\n\x1B[0m"
     sudo apt update
     sudo apt upgrade -y
-    sudo apt-get install -y open-vm-tools
+    sudo apt install -y open-vm-tools apt-transport-https ca-certificates curl gnupg lsb-release
 
     printf "\x1B[01;93m========== Install make and docker ==========\n\x1B[0m"
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-    sudo apt-get update
-    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-    sudo apt install -y make docker-ce docker-ce-cli docker-compose containerd.io
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    sudo apt update
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    sudo apt update
+    sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
     printf "\x1B[01;93m========== Ensure keys exist ==========\n\x1B[0m"
     # Create .ssh/ if it doesn't exist
