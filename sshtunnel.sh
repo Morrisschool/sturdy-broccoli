@@ -39,7 +39,7 @@ sshtunnel_install() {
 
     [Install]
     WantedBy=multi-user.target
-    EOF'
+    EOF"
 
     while true; do
     read -p "Is the public key installed on the Cloud proxy? " YN
