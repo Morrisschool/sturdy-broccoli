@@ -3,7 +3,7 @@
 docker_install() {
     printf "\x1B[01;93m========== Updating system ==========\n\x1B[0m"
     sudo apt update
-    sudo apt upgrade -y
+    sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y
     sudo DEBIAN_FRONTEND=noninteractive apt install -y apt-transport-https ca-certificates curl gnupg lsb-release
 
     printf "\x1B[01;93m========== Install make and docker ==========\n\x1B[0m"
