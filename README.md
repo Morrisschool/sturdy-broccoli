@@ -1,5 +1,10 @@
 # sturdy-broccoli
 
+// Create swapfile //
+'''
+bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/swap.sh)
+'''
+
 // Install Docker //
 ```
 bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/installdocker.sh)
