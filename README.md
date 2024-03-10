@@ -1,5 +1,10 @@
 # sturdy-broccoli
 
+// Create edebucher env //
+```
+bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/edebucher.sh)
+```
+
 // Create swapfile //
 ```
 bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/swap.sh)
