@@ -1,5 +1,10 @@
 # sturdy-broccoli
 
+// Install Docker official //
+```
+curl -fsSL https://get.docker.com | sudo sh
+```
+
 // Create edebucher env //
 ```
 bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/edebucher.sh)
@@ -8,21 +13,6 @@ bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/ma
 // Create swapfile //
 ```
 bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/swap.sh)
-```
-
-// Install Docker //
-```
-bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/installdocker.sh)
-```
-
-// Install Docker //<br />
-```
-bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/installdocker1.sh)
-```
-
-// Install Docker ARM //<br />
-```
-bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/installdockerarm.sh)
 ```
 
 // Install HaProxy //<br />
