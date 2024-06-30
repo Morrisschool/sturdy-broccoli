@@ -10,6 +10,11 @@ curl -fsSL https://get.docker.com | sudo sh
 bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/swap.sh)
 ```
 
+// Update //
+```
+bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/update.sh)
+```
+
 // Install SSH tunnel //<br />
 ```
 bash <(curl -s https://raw.githubusercontent.com/Morrisschool/sturdy-broccoli/main/sshtunnel.sh)
