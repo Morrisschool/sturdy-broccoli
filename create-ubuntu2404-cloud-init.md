@@ -34,8 +34,8 @@ EOF
 qm set 8001 --cicustom "vendor=local:snippets/vendor.yaml"
 qm set 8001 --ciuser morris
 qm set 8001 --cipassword $(openssl passwd -6 $CLEARTEXT_PASSWORD)
-qm set 8001 --sshkeys ~/.ssh/authorized_keys
 qm set 8001 --ipconfig0 ip=dhcp
+qm set 8001 --sshkeys ~/.ssh/authorized_keys
 ```
 ```
 qm template 8001
