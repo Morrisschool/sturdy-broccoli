@@ -9,7 +9,7 @@ qemu-img resize noble-server-cloudimg-amd64.img 32G
 qm create 8001 --name "ubuntu-2404-cloudinit-template" --ostype l26 \
     --memory 2048 \
     --agent 1 \
-    --bios ovmf --machine i440fx --efidisk0 data1:0,pre-enrolled-keys=0 \
+    --bios ovmf --machine pc --efidisk0 data1:0,pre-enrolled-keys=0 \
     --cpu host --socket 1 --cores 2 \
     --vga serial0 --serial0 socket  \
     --net0 virtio,bridge=vmbr0
