@@ -6,7 +6,7 @@ wget -q https://cloud-images.ubuntu.com/noble/current/jammy-server-cloudimg-amd6
 qemu-img resize noble-server-cloudimg-amd64.img 32G
 ```
 ```
-#sudo qm create 8001 --name "ubuntu-2404-cloudinit-template" --ostype l26 \
+#sudo qm create 8001 --name "ubuntu-2204-cloudinit-template" --ostype l26 \
     --memory 2048 \
     --agent 1 \
     --bios ovmf --machine i440fx --efidisk0 data1:0,pre-enrolled-keys=0 \
@@ -15,7 +15,7 @@ qemu-img resize noble-server-cloudimg-amd64.img 32G
     --net0 virtio,bridge=vmbr0
 ```
 ```
-qm importdisk 8001 noble-server-cloudimg-amd64.img local-zfs
+qm importdisk 8001 jammy-server-cloudimg-amd64.img local-zfs
 qm set 8001 --scsihw virtio-scsi-pci --virtio0 data1:vm-8001-disk-1,discard=ignore
 qm set 8001 --boot order=virtio0
 qm set 8001 --ide2 data1:cloudinit
@@ -32,7 +32,7 @@ EOF
 ```
 ```
 qm set 8001 --cicustom "vendor=local:snippets/vendor.yaml"
-qm set 8001 --tags ubuntu-template,24.04,cloudinit
+qm set 8001 --tags ubuntu-template,22.04,cloudinit
 qm set 8001 --ciuser morris
 qm set 8001 --cipassword $(openssl passwd -6 $CLEARTEXT_PASSWORD)
 qm set 8001 --sshkeys ~/.ssh/authorized_keys
