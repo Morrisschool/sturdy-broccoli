@@ -6,7 +6,7 @@ wget -q https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd6
 qemu-img resize noble-server-cloudimg-amd64.img 32G
 ```
 ```
-#sudo qm create 8001 --name "ubuntu-2404-cloudinit-template" --ostype l26 \
+qm create 8001 --name "ubuntu-2404-cloudinit-template" --ostype l26 \
     --memory 2048 \
     --agent 1 \
     --bios ovmf --machine i440fx --efidisk0 data1:0,pre-enrolled-keys=0 \
