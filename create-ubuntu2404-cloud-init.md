@@ -18,7 +18,7 @@ qm create 8001 --name "ubuntu-2404-cloudinit-template" --ostype l26 \
 qm importdisk 8001 noble-server-cloudimg-amd64.img local-zfs
 qm set 8001 --scsihw virtio-scsi-pci --virtio0 data1:vm-8001-disk-1,discard=ignore
 qm set 8001 --boot order=virtio0
-qm set 8001 --ide2 data1:cloudinit
+qm set 8001 --scsihw data1:cloudinit
 ```
 ```
 cat << EOF | tee /var/lib/vz/snippets/vendor.yaml
