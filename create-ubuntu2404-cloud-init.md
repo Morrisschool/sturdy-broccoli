@@ -21,7 +21,7 @@ qm set 8001 --boot order=virtio0
 qm set 8001 --scsi1  data1:cloudinit
 ```
 ```
-cat << EOF | tee /var/lib/vz/snippets/vendor.yaml
+cat << EOF | tee /var/lib/vz/snippets/ubuntu-24.04.yaml
 #cloud-config
 runcmd:
     - apt update
@@ -31,7 +31,7 @@ runcmd:
 EOF
 ```
 ```
-qm set 8001 --cicustom "vendor=local:snippets/vendor.yaml"
+qm set 8001 --cicustom "vendor=local:snippets/ubuntu-24.04.yaml"
 qm set 8001 --ciuser morris
 qm set 8001 --cipassword $(openssl passwd -6 $CLEARTEXT_PASSWORD)
 qm set 8001 --ipconfig0 ip=dhcp
